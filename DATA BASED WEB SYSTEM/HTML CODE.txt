@@ -1,0 +1,75 @@
+ ###For putting in options with blue dots
+<label>Gender</label>
+            <br>
+            <input type="radio" id="eyecolorblue" name="eyecolor" value="Blue">
+            <label for="eyecolorblue">Male</label>
+            <input type="radio" id="eyecolorbrown" name="eyecolor" value="Brown">
+            <label for="eyecolorbrown">Female</label>
+            <br><br>
+
+####Selecting from list of options
+
+<label for = "cartype">Car type you own?</label>
+            <br>
+            <select name="Car Type" id="cartype">
+ 			<option value = "None">None</option>
+                <option value = "Ford">Ford</option>
+                <option value = "Mustang">Mustang</option>
+                <option value = "Toyota">Toyota</option>
+            </select>
+
+####Check box and radio for options
+select {
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+##Security code = required, it only gives a pop up but doesnt give accurate security for you.
+never use a fundant development meaning HTML, CSS, OR JAVA because you can easily by pass it.
+
+
+input password
+<label for="pwd">Password</label>
+            <br>
+            <input required type="password" id="pwd" name="pwd" placeholder="password">
+            <br><br>
+
+
+##apart from htmlspecial characters there is also htmlentities
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Access form data
+    $lastname = htmlspecialchars($_POST["lastname"]); 
+    $firstname = htmlspecialchars($_POST["firstname"]); 
+    // Access other form fields in a similar manner
+    
+    // Now you can use the form data as needed
+    // For demonstration, let's just echo the received data
+    echo "Last Name: " . $lastname . "<br>";
+    echo "First Name: " . $firstname . "<br>";
+    // Echo other form fields as needed
+} else {
+    // Handle case when form is not submitted
+    echo "Form not submitted!";
+}
+?>
+
+
+
+
+
+ <label>Gender</label>
+        <br>
+        <input type="radio" id="male" name="gender" value="Male"> 
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female"> 
+        <label for="female">Female</label>
+        <br><br>
+        <label for="studenttype">Who are you?</label>
+        <br>
+        <select name="studenttype" id="studenttype">
+            <option value="None">None</option>
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="New Student">New Student</option>
+            <option value="Post Graduate">Post Graduate</option>
+        </select>

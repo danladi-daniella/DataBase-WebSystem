@@ -1,0 +1,129 @@
+INT(11) -2147483648 - 2147483647
+#specifies numbers of integers stored there(normal amount of numbers)
+#number between parenthesis shows the amount of data the system should show
+#it occupies 4bytes of data space
+
+BIGINT
+#stores alot of numbers in a bigger size(larger amount of numbers)
+#only used when necessary cause it occupies alot of spaces in the data
+#occupies 8bytes of data
+
+FLOAT -23452.43543
+#when you have a decimal point in numbers
+#4bytes cause you can have minimum and maximum
+
+DOUBLE
+#alot greater amount of numbers when it comes to decimal numbers
+
+VARCHAR(10)
+#have to do with characters
+#create parenthesis(to define something here) cause the default is going to be one
+#basically 10 means you can store 10 characters as a string inside this data type
+#username e.g 30
+
+##password
+VARCHAR(255)
+#to allow users use many characters for password(standard)
+#depends on the type of database determines the bytes
+#used for usernames and passwords. thungs that require smaller texts
+
+TEXT
+#if you want to store many characters inside a column 
+#used when alot of paragraphs are needed
+
+DATE
+#date of a certain point in time
+#e.g 2023-05-14
+#make sure you format it to the same way it is in your database and php cause if they don't correspond it won't get stored in the data bases
+
+DATETIME
+#2023-05-14 11:30:00(Hour,Minuite,Seconds)same thing but time is included
+#time format is 24hours
+
+SIGNED AND UNSIGNED
+INT(11) -2147483648 - 2147483647
+SIGNED= #if you want to store a negative number in your database
+UNSIGNED= #if you don't want to store a negative number in your data base
+#when used more bytes are available casue we cut out all the negative numbers so it starts from 0-twice as much number when it comes to positive.
+
+
+
+
+
+#How to create a database table
+##make sure you use different titles from the ones that occur already to avoid errors
+CREATE TABLE users (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+    #null means you don't want it to be nothing
+    #e.g auto_increment, you want to have a unique identifier for all the users using positive numbers automatically,gives the numbers automatically accordingly starting from 0
+    username VARCHAR(30) NOT NULL,
+    pwd VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME  #automatically give the servers time in to the data base
+    PRIMARY KEY (id)  #note the last line of code inside mysql has to be without a comma if not you get an error#primary key defines the one that has to be unique and can't be duplicated#helps to find them quickly inside a database
+);
+
+
+
+BASIC OF WHAT SHOWS
+
+
+
+CREATE TABLE users (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+  
+    username VARCHAR(30) NOT NULL,
+    pwd VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME 
+    PRIMARY KEY (id)  
+);
+
+
+
+
+   TABLE 2
+
+CREATE TABLE comments (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
+    comment_text TEXT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    users_id INT(11) NOT NULL,  #make sure to design same data type as the same in the database
+    PRIMARY KEY (id),
+    FOREIGN KEY (users_id) REFERENCES users (id) NO DELETE NO ACTION  ##(if you wanted to delete a user with a certain id connected to a comment in the users table NOACTION= won't allow to delete user cause it would break the data base table relationship and produce error) 
+ # helps connect the database tables together. #parenthesis identifying the one you want to reference to a key at another table 
+ ###CASCADE = on the delete if there is any comment in this table that has a relationship to a user from the users table also go and delete all the comments made by the particular user 
+####SET NULL = instead of deleating all entries it will just set "users_id INT(11) NOT NULL,""as NULL before you delete the user the id is connected to.
+to also use this make sure your user_id is *NOT NULL* if not it would give an error 105
+);
+
+
+#how to insert data
+INSERT INTO  users (username, pass_word, email) VALUES ('Krossing', 'dani123', 'johndoe@gmail.com');##insert into one of the table(but specify)
+
+##how to update
+UPDATE users SET username = 'string', WHERE #specify the place in which the data is found
+
+##How to delete
+DELETE FROM users WHERE id = 2;
+
+##inserting comment
+INSERT INTO  comments (username, comment_text, users_id) VALUES ('Krossing', 'This is a comment on a website!', '1');
+
+##selecting and joining two tables together
+SELECT username, email FROM users WHERE id = 1;
+SELECT username, comment_text FROM comments WHERE users_id = 1;
+#this will select everything in the columns
+SELECT * FROM comments WHERE users_id = 1;
+
+##JOIN. select to date from two different tables at same time
+-TYPES OF JOIN=inner join,left join,full join, right join
+SELECT * FROM users INNER JOIN comments ON  users.id = comments.users_id; OR #instead of selecting everything
+SELECT users.username, comments.comment_text, comments.created_at FROM users INNER JOIN comments ON  users.id = comments.users_id;
+##-left Join= meaning its the left we have as a primary focus
+SELECT * FROM users LEFT JOIN comments ON  users.id = comments.users_id;#selecting all users to show even though they don't have comments made
+users-left, comments-right
+
+##right join
+SELECT * FROM users RIGHT JOIN comments ON  users.id = comments.users_id; #only the users that made comments

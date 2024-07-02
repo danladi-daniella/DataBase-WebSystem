@@ -1,0 +1,273 @@
+Rference to ht docs
+
+##PHP
+-"HYPERTEXT PREPROCESSOR" a recurssive acronym
+-Scripting language that is specially used for web development
+-you can easily embed it with html
+- considered a server side language= code is executed on the server, then sent to the client, meaning code is hidden.
+-mainly used for web development. thats why it thought that PHP is dead. eg of apps that use php. facebook, wikipedia, canva, word press(CMS)
+
+#PHP is divided in to 3 parts
+-learning it and how to program with it
+-databases-how to manipulate them
+-security- how to protect the data
+
+##setting up your php on vs code and on the local host server
+
+##Syntax in php
+-php open and closing tags = <?php?>
+e.g
+<body>
+
+<p> Some HTML text.</p>
+<?php echo "This is text written in PHP.";?>
+
+</body>
+-you need to memorise the tags if you want to use php codes
+-in php using semicolon to end every code. it is used to output a text or string in your website. the closing php tag automatically implies a semicolon
+
+##when it is purly php and no html
+- you have your tag(opening tag) at the top of the page and closing tag will not be included but put semi colon e.g
+<?php
+echo "This is text written in PHP."; #so that if you accidentally leave a space things cant go wrong.
+
+##ADVANCED EXAMPLE IF EMBEDDING PHP
+<body>
+
+<?php
+if(true){
+echo"<p>Some HTML text.</p>";
+}
+?>
+
+</body>
+-a condition statement.(<p>) used whenever you want to create an HTML text inside a webpage. so you can write HTML and context using PHP.
+-the colour of text will be orange. cause its a string(in php).and it cause cause error having HTML in the string like that so you split up the string using the opening and closing php tags.
+e.g
+
+<body>
+
+<?php if(true){?>
+<p>Some HTML text.</p>
+<?php}?>
+
+</body>
+- now HTML is going to be seen as a text and would be read by the editor for syntax.cause we used the opening and closing tags before and after string instead of echo.
+
+##Writing comment inside HTML
+-whenever writing a php code write comments cause as you go on you would have forgotten what that line of code does.
+e.g
+<?php
+//Here we output a string in to browser!
+echo"This is text written in PHP.";
+?>
+OR
+<?php
+/*This is how we write comments on multiple lines!
+*/
+?>
+- in this way you can write multiple lines at once.
+
+##PHP variable and Data Type Tutorial
+<body>
+   
+    <p> This is a paragraph!</p>
+    <?php> echo"This is ALSO a pragraph!" ?>
+
+</body>
+-(?>) helps output things
+
+##what is a variable?
+- a variable is having a memory location inside the application that stores alot of data.it has a label.
+- the way you declare a variable is by using a dollar sign ($)
+- "echo" is to output something in the browser.
+
+e.g
+<body>
+   
+    <?php
+    $_name = "Dani Krossing";
+    echo $name;
+    ?>
+
+</body>
+- you use (_) in other to name the variable. but make sure the variable label doesnt start with a capital letter and every other text in the variable starts with a capital letter.
+-if you have two words as title of a variable the first word should be in small letters and the secong,third, fourth depending how many should start with a capital letter.
+e.g
+<body>
+   
+    <?php
+    $fullName = "Dani Krossing";
+    echo $name;
+    ?>
+</body>
+-recommended. stick within letter, under scores and numbers when it comes to naming a variable. and after that second word you could choose to add underscore and numbers.
+
+##DATA TYPES
+#Scaler types and Scaler basic means the variable contains 1 value init.
+
+#Array Types. a variable that has multiple piece of data inside of it
++multiple ways of creating an array 
+1. array();
+2. just using brass brackets(only works for the newest versions of php if intalled)
+
+#Object types. having an object = a variable.
+- created based on classes. creating a variable object to the class.
+e.g creating a variable that is a string
+
+<body>
+   
+    <?php
+    //scaler types(contains one value)
+    $string = "Daniel";
+    $int = 123454353;
+    $float = 2.5678;
+    $bool = true;
+
+    //Array type
+    $array = ["Daniel", "Bella", "Frida"];
+
+    //Object type
+    $object = new Car();
+    ?>
+</body>
+
+##you leave every variable empty when you don't know what should be assigned to it yet
+e.g
+<body>
+   
+    <?php
+    //scaler types(contains one value)
+    $string = "";
+    $int = 0;
+    $float = 0;
+    $bool = false;
+
+    $array = [];
+    $object = null;
+
+    ?>
+
+</body>
+- when you use "$int" inuting numbers you don't use a double quote for that if not it turn s to a string.
+- "Boolean" - True (1) or False(0) statement.a.k.a $bool
+
+##FINALLY HOW TO USE VARIABLE
+<body>
+   
+    <?php
+    $name = "Dani Krossing";
+    ?>
+
+    <p>Hi! My name is <?php echo $name?>, and I am learning PHP!</p>
+
+</body>
+
+OR
+    <?php
+    $name = "Dani Krossing";
+    $test = $name;
+    ?>
+
+    <p>Hi! My name is <?php echo $test?>, and I am learning PHP!</p>
+
+
+##predefined Variables
+- a variable that exist inside the php language
+
+##SUPER GLOBALS
+-we can access the variables in the code no matter what the scope is from anywhere in the code
+- whenever you want to create a supper global you will use a dollar sign and an under score e.g
+
+<body>
+   
+    <?php
+    echo $SEVER["DOCUMENT_ROOT"];
+    echo "<br>";
+    echo $SEVER["PHP_SELF"];
+    ?>
+
+
+</body>
+
+-"DOCUMENT_ROOT"= give infor mation about the root path of the website
+-HTML break <br>- give spacing in the output information. 
+- get and post method-used when you have a form inside a website you can fill in using HTML. inside this form we have 2 attributes
+1. Method- state if you want to submit the data using a get or post method.
+2.Action- Getting and submitting data inside a database you can do so using a get and post method in HTML form.
+
+<body>
+   
+    <?php
+    echo $_SEVER["DOCUMENT_ROOT"];
+    echo "<br>";
+    echo $_SEVER["PHP_SELF"];
+    echo "<br>";
+    echo $_SEVER["SERVER_NAME"];
+    echo "<br>";
+    echo $_SEVER["REQUEST_METHOD"];
+    ?>
+
+
+</body>
+
+##OR TO GET
+<body>
+   
+    <?php
+    echo $_GET["name"];
+
+    echo $_GET["eyecolor"];
+    ?>
+
+
+</body>
+
+##Post method when used isn't visible in the URL as GET method is.it's more secretive.
+##Request Method
+-whenever you know you're going to be using post or get data use the get post methode instead.
+
+<body>
+   
+    <?php
+    echo $_REQUEST["name"];
+
+</body>
+
+##Files
+<body>
+   
+    <?php
+    echo $_FILES["name"];
+    ?>
+
+</body>
+- for uploading a picture or file to the website. amd the type of file format you should allow.
+grab information about a file uploaded by a user.
+
+##COOKIE- a small file your server embeds on a users computer.
+<body>
+   
+    <?php
+    echo $_COOKIE["name"];
+    ?>
+
+</body>
+##SESSION- grab some information about data.
+<body>
+   
+    <?php
+    $_SESSION["username"] = "krossing";
+    echo $_SESSION["username"];
+    ?>
+
+</body>
+
+##Environment variable: essentially sensitive.data that should not be available and accessible to any user.
+<body>
+   
+    <?php
+    $_ENV[];
+    ?>
+
+</body>

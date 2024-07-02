@@ -1,0 +1,4 @@
+-to be downloaded in excel sheet
+-matric number and picture
+be able to download the picture and matric number
+name arrangement
